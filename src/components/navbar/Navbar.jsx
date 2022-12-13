@@ -1,34 +1,40 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import trollFaceImage from "../../assets/images/trollFace.svg";
+import Row from "react-bootstrap/Row";
 
 const MainNavbar = () => {
-    return (
-        <Navbar bg="light" expand="lg">
-      <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-    )
-}
+  return (
+    <header>
+      <Navbar bg="primary" variant="dark">
+        <Container>
+          <Row>
+            <Navbar.Brand className="justify-content-center align-items-center">
+              <img
+                src={trollFaceImage}
+                width="50"
+                height="50"
+                className="d-inline-block align-top"
+                alt="React Bootstrap logo"
+              />{" "}
+              <p>Meme Generator</p>
+            </Navbar.Brand>
+          </Row>
 
-export default MainNavbar
+          <Navbar.Collapse className="justify-content-end">
+            <Navbar.Text>
+              Made by{"  "}
+              <a href="https://zoran-janjic.netlify.app/" target="_blank">
+                Zoran Janjic
+              </a>
+            </Navbar.Text>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </header>
+  );
+};
+
+export default MainNavbar;
