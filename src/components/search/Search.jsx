@@ -25,6 +25,15 @@ const Search = () => {
     setMeme((prevValues) => ({ ...prevValues, imageUrl: imgUrl }));
   };
 
+  const handleChange = (e) => {
+    const { value, name } = e.target;
+
+    setMeme((prevValue) => ({
+      ...prevValue,
+      [name]: value,
+    }));
+  };
+
   return (
     <main>
       <Container className="mt-3">
@@ -36,6 +45,9 @@ const Search = () => {
                   placeholder="First text"
                   aria-label="FirstText"
                   aria-describedby="basic-addon1"
+                  value={meme.topText}
+                  name="topText"
+                  onChange={handleChange}
                 />
               </InputGroup>
             </Col>
@@ -45,6 +57,9 @@ const Search = () => {
                   placeholder="Second text"
                   aria-label="SecondText"
                   aria-describedby="basic-addon1"
+                  value={meme.bottomText}
+                  name="bottomText"
+                  onChange={handleChange}
                 />
               </InputGroup>
             </Col>
@@ -62,7 +77,12 @@ const Search = () => {
         </Form>
         <Row>
           <Col className="mt-3 ">
-            <ImageContainer {...meme} />
+            <div className="meme">
+              <ImageContainer {...meme} />
+              <img src={meme.randomImage} className="meme--image" />
+              <h2 className="meme--text top">{meme.topText}</h2>
+              <h2 className="meme--text bottom">{meme.bottomText}</h2>
+            </div>
           </Col>
         </Row>
       </Container>
