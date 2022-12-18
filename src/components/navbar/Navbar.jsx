@@ -1,14 +1,14 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import trollFaceImage from "../../assets/images/trollFace.svg";
 import Row from "react-bootstrap/Row";
+import Bootstrap2Toggle from "react-bootstrap-toggle";
 
-const MainNavbar = () => {
+const MainNavbar = ({ darkMode, handleModeChange }) => {
   return (
     <header>
-      <Navbar bg="primary" variant="dark">
+      <Navbar bg={darkMode ? "dark" : "primary"} variant="dark">
         <Container>
           <Row>
             <Navbar.Brand className="justify-content-center align-items-center">
@@ -20,6 +20,17 @@ const MainNavbar = () => {
                 alt="React Bootstrap logo"
               />{" "}
               <p>Meme Generator</p>
+              <p>{darkMode ? "Light Mode" : "Dark Mode"}</p>
+              <label class="switch" htmlFor="mode">
+                <input
+                  type="checkbox"
+                  id="mode"
+                  checked={darkMode}
+                  onChange={handleModeChange}
+                  name="mode"
+                />
+                <span class="slider round"></span>
+              </label>
             </Navbar.Brand>
           </Row>
 
