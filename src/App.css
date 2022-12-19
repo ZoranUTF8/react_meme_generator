@@ -64,6 +64,10 @@
 }
 .darkSearch input {
   background-color: gray !important;
+  color: #fff;
+}
+.darkSearch input:focus {
+  color: #fff;
 }
 
 /* The switch - the box around the slider */
@@ -127,4 +131,16 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+/* Print media */
+@media print {
+  .search-print {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .no-print-area {
+    display: none;
+  }
 }
