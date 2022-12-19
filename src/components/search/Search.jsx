@@ -11,8 +11,6 @@ import { useReactToPrint } from "react-to-print";
 import Loading from "../Loading/Loading";
 
 const Search = ({ darkMode }) => {
-
-
   const componentRef = useRef();
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
@@ -50,13 +48,13 @@ const Search = ({ darkMode }) => {
       <Button
         variant="success mt-3"
         type="submit"
-        className="w-50"
+        className="w-50 no-print-area "
         onClick={handlePrint}
       >
         Print this out!
       </Button>
       <Container className="mt-3" rref={(el) => (this.componentRef = el)}>
-        <Form>
+        <Form className="no-print-area">
           <Row>
             <Col md={6}>
               <InputGroup className="mb-2">
@@ -96,7 +94,7 @@ const Search = ({ darkMode }) => {
         </Form>
         <Row>
           <Col className="mt-3 mb-5">
-            <div className="meme">
+            <div className="meme search-print">
               <ImageContainer {...meme} />
               <img src={meme.randomImage} className="meme--image" />
               <h2 className="meme--text top">{meme.topText}</h2>
